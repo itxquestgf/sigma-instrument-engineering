@@ -16,7 +16,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-medium text-gray-200">
-          {["Home", "Profile", "Legality", "Contact"].map((item) => (
+          {["Home", "Profile", "Legality", "Products", "Contact"].map((item) => (
             <li
               key={item}
               className="hover:text-yellow-400 cursor-pointer transition"
@@ -55,7 +55,7 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="md:hidden bg-[#0B1C2D]/90 backdrop-blur px-6 py-6 space-y-4 text-gray-200"
           >
-            {["Home", "Profile", "Legality", "Contact"].map((item) => (
+            {["Home", "Profile", "Legality", "Products", "Contact"].map((item) => (
               <div
                 key={item}
                 className="hover:text-yellow-400 cursor-pointer transition"

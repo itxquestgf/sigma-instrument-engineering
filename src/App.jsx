@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Profile from "./components/Profile";
+import Product from "./components/Product";
 
 export default function App() {
   return (
@@ -9,6 +9,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <Profile />
+      <Product />
     </div>
   );
 }
