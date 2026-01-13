@@ -113,6 +113,81 @@ export default function Product() {
           ))}
         </motion.div>
 
+        {/* ===== Keunggulan Kami ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-24"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Keunggulan Kami
+            </h3>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Mengapa memilih PT Sigma Instrument Engineering sebagai partner Anda
+            </p>
+          </div>
+
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                icon: "🧑‍🔬",
+                title: "Tenaga Ahli",
+                desc: "Berpengalaman & Tersertifikasi",
+              },
+              {
+                icon: "🎯",
+                title: "Peralatan Standar",
+                desc: "Terkalibrasi & Teruji",
+              },
+              {
+                icon: "⚡",
+                title: "Proses Cepat",
+                desc: "Efisien & Akurat",
+              },
+              {
+                icon: "📋",
+                title: "Laporan Lengkap",
+                desc: "Sertifikat Resmi",
+              },
+              {
+                icon: "💰",
+                title: "Harga Kompetitif",
+                desc: "Terjangkau & Transparan",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                variants={card}
+                whileHover={{ y: -8 }}
+                className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:border-yellow-400/40 transition text-center"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="text-4xl mb-4 text-yellow-400"
+                >
+                  {item.icon}
+                </motion.div>
+                <h4 className="text-white font-semibold text-lg mb-1">
+                  {item.title}
+                </h4>
+                <p className="text-gray-300 text-sm">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
       </div>
     </section>
   );
