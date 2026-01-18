@@ -1,1 +1,25 @@
 @import "tailwindcss";
+/* ===== Custom Horizontal Scrollbar ===== */
+.scrollbar-dark::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #facc15, #eab308);
+  border-radius: 10px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background: #fde047;
+}
+
+/* Firefox */
+.scrollbar-dark {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 rgba(255, 255, 255, 0.05);
+}

@@ -66,26 +66,49 @@ export default function Contact() {
 
         {/* ===== Card: Informasi Konsumen ===== */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 md:grid-cols-3 gap-8"
-        >
-          <motion.div
-            variants={card}
-            whileHover={{ y: -8 }}
-            className="bg-white/5 backdrop-blur rounded-2xl p-6 text-center border border-white/10 hover:border-yellow-400/40 transition"
-          >
-            <h3 className="text-xl font-semibold text-white mb-4">Informasi Konsumen</h3>
-            <div className="space-y-4">
-              <img src={konsumen1} alt="konsumen1" className="w-full h-32 object-cover rounded-xl mb-4" />
-              <img src={konsumen2} alt="konsumen2" className="w-full h-32 object-cover rounded-xl mb-4" />
-              <img src={konsumen3} alt="konsumen3" className="w-full h-32 object-cover rounded-xl mb-4" />
-              <img src={konsumen4} alt="konsumen4" className="w-full h-32 object-cover rounded-xl mb-4" />
-              <img src={konsumen5} alt="konsumen5" className="w-full h-32 object-cover rounded-xl mb-4" />
-            </div>
-          </motion.div>
+  variants={container}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="grid md:grid-cols-2 gap-8"
+>
+
+<motion.div
+  variants={card}
+  whileHover={{ y: -6 }}
+  className="md:col-span-2 bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10 hover:border-yellow-400/40 transition"
+>
+  <h3 className="text-xl font-semibold text-white mb-2">
+    Informasi Konsumen
+  </h3>
+  <p className="text-sm text-gray-400 mb-6">
+    Dipercaya oleh berbagai perusahaan & institusi
+  </p>
+
+  <div className="flex gap-6 items-center overflow-x-auto scrollbar-dark pb-2">
+  {[konsumen1, konsumen2, konsumen3, konsumen4, konsumen5].map(
+    (img, index) => (
+      <motion.img
+        key={index}
+        src={img}
+        alt={`konsumen-${index + 1}`}
+        whileHover={{ scale: 1.08 }}
+        transition={{ type: "spring", stiffness: 200 }}
+        className="
+          h-20 md:h-24
+          object-contain
+          bg-white/10
+          rounded-xl
+          p-4
+          min-w-35
+        "
+      />
+    )
+  )}
+</div>
+
+</motion.div>
+
 
           {/* ===== Card: Informasi Kontak ===== */}
           <motion.div
@@ -99,10 +122,10 @@ export default function Contact() {
                 <span className="text-yellow-400 mr-2">📍</span> Alamat: Kp.Cimuncang Rt.01 Rw.13 Nomor.67 Kel.Manggahang Kec.Baleendah
               </p>
               <p className="flex items-center text-gray-300">
-                <span className="text-yellow-400 mr-2">📱</span> Telepon / WhatsApp: 085221303266
+                <span className="text-yellow-400 mr-2">📱</span> Telepon / WhatsApp: 089653828447
               </p>
               <p className="flex items-center text-gray-300">
-                <span className="text-yellow-400 mr-2">✉️</span> Email: Ptsigmainstrumentengineering@gmail.com
+                <span className="text-yellow-400 mr-2">✉️</span> Email: sigmainstrumentengineering@gmail.com
               </p>
               <p className="flex items-center text-gray-300">
                 <span className="text-yellow-400 mr-2">⏰</span> Jam Operasional: Senin - Jumat: 08:00 - 17:00 WIB, Sabtu: 08:00 - 12:00 WIB
