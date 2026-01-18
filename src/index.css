@@ -1,25 +1,27 @@
 @import "tailwindcss";
-/* ===== Custom Horizontal Scrollbar ===== */
+
+/* ===== Custom Dark Horizontal Scrollbar ===== */
 .scrollbar-dark::-webkit-scrollbar {
-  height: 6px;
+  height: 8px;
 }
 
 .scrollbar-dark::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
 }
 
 .scrollbar-dark::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #facc15, #eab308);
-  border-radius: 10px;
+  background: rgba(250, 204, 21, 0.6); /* yellow-400 */
+  border-radius: 999px;
 }
 
 .scrollbar-dark::-webkit-scrollbar-thumb:hover {
-  background: #fde047;
+  background: rgba(250, 204, 21, 0.85);
 }
 
 /* Firefox */
 .scrollbar-dark {
+  scrollbar-color: rgba(250, 204, 21, 0.6) rgba(255, 255, 255, 0.08);
   scrollbar-width: thin;
-  scrollbar-color: #facc15 rgba(255, 255, 255, 0.05);
 }
+

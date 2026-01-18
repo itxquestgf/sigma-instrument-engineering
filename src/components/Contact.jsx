@@ -6,13 +6,11 @@ import konsumen3 from "../assets/images/konsumen3.jpg";
 import konsumen4 from "../assets/images/konsumen4.jpg";
 import konsumen5 from "../assets/images/konsumen5.jpg";
 
-/* Animation variants */
+/* ===== Animation Variants ===== */
 const container = {
   hidden: {},
   show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
@@ -33,14 +31,11 @@ export default function Contact() {
     message: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit form logic
     console.log(form);
   };
 
@@ -48,7 +43,7 @@ export default function Contact() {
     <section className="py-24 bg-[#0B1C2D] text-gray-200">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* ===== Header ===== */}
+        {/* ===== HEADER ===== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,95 +59,129 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* ===== Card: Informasi Konsumen ===== */}
+        {/* ===== GRID UTAMA ===== */}
         <motion.div
-  variants={container}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="grid md:grid-cols-2 gap-8"
->
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-8"
+        >
 
-<motion.div
-  variants={card}
-  whileHover={{ y: -6 }}
-  className="md:col-span-2 bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10 hover:border-yellow-400/40 transition"
->
-  <h3 className="text-xl font-semibold text-white mb-2">
-    Informasi Konsumen
-  </h3>
-  <p className="text-sm text-gray-400 mb-6">
-    Dipercaya oleh berbagai perusahaan & institusi
-  </p>
-
-  <div className="flex gap-6 items-center overflow-x-auto scrollbar-dark pb-2">
-  {[konsumen1, konsumen2, konsumen3, konsumen4, konsumen5].map(
-    (img, index) => (
-      <motion.img
-        key={index}
-        src={img}
-        alt={`konsumen-${index + 1}`}
-        whileHover={{ scale: 1.08 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="
-          h-20 md:h-24
-          object-contain
-          bg-white/10
-          rounded-xl
-          p-4
-          min-w-35
-        "
-      />
-    )
-  )}
-</div>
-
-</motion.div>
-
-
-          {/* ===== Card: Informasi Kontak ===== */}
+          {/* ===== INFORMASI KONSUMEN (FULL WIDTH) ===== */}
           <motion.div
             variants={card}
-            whileHover={{ y: -8 }}
-            className="bg-white/5 backdrop-blur rounded-2xl p-6 text-center border border-white/10 hover:border-yellow-400/40 transition"
+            className="
+              col-span-1 md:col-span-12
+              bg-white/5 backdrop-blur
+              rounded-2xl p-8
+              border border-white/10
+              hover:border-yellow-400/40 transition
+            "
           >
-            <h3 className="text-xl font-semibold text-white mb-4">Informasi Kontak</h3>
-            <div className="space-y-4 text-left">
-              <p className="flex items-center text-gray-300">
-                <span className="text-yellow-400 mr-2">📍</span> Alamat: Kp.Cimuncang Rt.01 Rw.13 Nomor.67 Kel.Manggahang Kec.Baleendah
+            <h3 className="text-xl font-semibold text-white mb-2">
+              Informasi Konsumen
+            </h3>
+            <p className="text-sm text-gray-400 mb-6">
+              Dipercaya oleh berbagai perusahaan & institusi
+            </p>
+
+<div
+  className="
+    flex gap-6 items-center
+    overflow-x-auto
+    pb-3
+    snap-x snap-mandatory
+    scrollbar-dark
+  "
+>
+
+              {[konsumen1, konsumen2, konsumen3, konsumen4, konsumen5].map(
+                (img, i) => (
+                  <motion.img
+                    key={i}
+                    src={img}
+                    alt={`konsumen-${i + 1}`}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="
+                      h-20 md:h-24
+                      min-w-[160px]
+                      object-contain
+                      bg-white/10
+                      rounded-xl
+                      p-4
+                      snap-center
+                      flex-shrink-0
+                    "
+                  />
+                )
+              )}
+            </div>
+          </motion.div>
+
+          {/* ===== INFORMASI KONTAK ===== */}
+          <motion.div
+            variants={card}
+            className="
+              col-span-1 md:col-span-6
+              bg-white/5 backdrop-blur
+              rounded-2xl p-6
+              border border-white/10
+              hover:border-yellow-400/40 transition
+              h-full
+            "
+          >
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Informasi Kontak
+            </h3>
+            <div className="space-y-4 text-gray-300">
+              <p className="flex gap-3">
+                <span className="text-yellow-400">📍</span>
+                Kp.Cimuncang Rt.01 Rw.13 No.67, Baleendah
               </p>
-              <p className="flex items-center text-gray-300">
-                <span className="text-yellow-400 mr-2">📱</span> Telepon / WhatsApp: 089653828447
+              <p className="flex gap-3">
+                <span className="text-yellow-400">📱</span>
+                089653828447
               </p>
-              <p className="flex items-center text-gray-300">
-                <span className="text-yellow-400 mr-2">✉️</span> Email: sigmainstrumentengineering@gmail.com
+              <p className="flex gap-3">
+                <span className="text-yellow-400">✉️</span>
+                sigmainstrumentengineering@gmail.com
               </p>
-              <p className="flex items-center text-gray-300">
-                <span className="text-yellow-400 mr-2">⏰</span> Jam Operasional: Senin - Jumat: 08:00 - 17:00 WIB, Sabtu: 08:00 - 12:00 WIB
+              <p className="flex gap-3">
+                <span className="text-yellow-400">⏰</span>
+                Senin–Jumat 08:00–17:00<br />
+                Sabtu 08:00–12:00
               </p>
             </div>
           </motion.div>
 
-          {/* ===== Card: Informasi GPS ===== */}
+          {/* ===== INFORMASI GPS ===== */}
           <motion.div
             variants={card}
-            whileHover={{ y: -8 }}
-            className="bg-white/5 backdrop-blur rounded-2xl p-6 text-center border border-white/10 hover:border-yellow-400/40 transition"
+            className="
+              col-span-1 md:col-span-6
+              bg-white/5 backdrop-blur
+              rounded-2xl p-6
+              border border-white/10
+              hover:border-yellow-400/40 transition
+              h-full
+            "
           >
-            <h3 className="text-xl font-semibold text-white mb-4">Informasi GPS</h3>
-            <div className="h-64 bg-gray-500 rounded-xl">
-              {/* Embed Google Maps or Map Image */}
-              <img
-                src="https://via.placeholder.com/400x200"
-                alt="GPS"
-                className="w-full h-full object-cover rounded-xl"
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Lokasi Kami
+            </h3>
+            <div className="h-64 rounded-xl overflow-hidden">
+              <iframe
+                title="maps"
+                src="https://maps.google.com/maps?q=Baleendah&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full"
               />
             </div>
           </motion.div>
-
         </motion.div>
 
-        {/* ===== Card: Kirim Pesan Form ===== */}
+        {/* ===== FORM KIRIM PESAN ===== */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -162,48 +191,58 @@ export default function Contact() {
         >
           <motion.div
             variants={card}
-            whileHover={{ y: -8 }}
-            className="bg-white/5 backdrop-blur rounded-2xl p-6 text-center border border-white/10 hover:border-yellow-400/40 transition"
+            className="
+              bg-white/5 backdrop-blur
+              rounded-2xl p-8
+              border border-white/10
+              hover:border-yellow-400/40 transition
+              max-w-3xl mx-auto
+            "
           >
-            <h3 className="text-xl font-semibold text-white mb-4">Kirim Pesan</h3>
+            <h3 className="text-xl font-semibold text-white mb-6 text-center">
+              Kirim Pesan
+            </h3>
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
-                type="text"
                 name="name"
-                value={form.name}
-                onChange={handleChange}
                 placeholder="Nama Anda"
-                className="w-full p-3 bg-gray-800 text-white rounded-lg"
+                onChange={handleChange}
+                className="w-full p-3 bg-[#0F253C] rounded-lg text-white"
                 required
               />
               <input
                 type="email"
                 name="email"
-                value={form.email}
-                onChange={handleChange}
                 placeholder="email@example.com"
-                className="w-full p-3 bg-gray-800 text-white rounded-lg"
+                onChange={handleChange}
+                className="w-full p-3 bg-[#0F253C] rounded-lg text-white"
                 required
               />
               <input
-                type="tel"
                 name="phone"
-                value={form.phone}
-                onChange={handleChange}
                 placeholder="08xxxxxxxxxx"
-                className="w-full p-3 bg-gray-800 text-white rounded-lg"
+                onChange={handleChange}
+                className="w-full p-3 bg-[#0F253C] rounded-lg text-white"
                 required
               />
               <textarea
                 name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Tuliskan pesan Anda..."
-                className="w-full p-3 bg-gray-800 text-white rounded-lg"
                 rows="4"
+                placeholder="Tuliskan pesan Anda..."
+                onChange={handleChange}
+                className="w-full p-3 bg-[#0F253C] rounded-lg text-white"
                 required
               />
-              <button type="submit" className="w-full py-3 bg-yellow-400 text-[#0B1C2D] font-semibold rounded-xl hover:bg-yellow-500 transition">
+              <button
+                type="submit"
+                className="
+                  w-full py-3
+                  bg-yellow-400 text-[#0B1C2D]
+                  font-semibold rounded-xl
+                  hover:bg-yellow-500 transition
+                "
+              >
                 Kirim Pesan
               </button>
             </form>
